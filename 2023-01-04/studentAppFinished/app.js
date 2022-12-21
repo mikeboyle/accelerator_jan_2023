@@ -7,6 +7,7 @@
  *  - [] GET /students/:id : return a student with a particular id
  */
 const express = require('express');
+const studentController = require('./controllers/studentController');
 
 // Initialize an app instance
 const app = express();
@@ -16,11 +17,7 @@ app.get('/', (request, response) => {
   response.send('Hello world!');
 });
 
-// GET /students
-
-
-// GET /students/:id
-
-
+// Controllers
+app.use('/students', studentController);
 
 module.exports = app;
