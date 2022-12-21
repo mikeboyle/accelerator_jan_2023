@@ -1,10 +1,10 @@
 /**
  * Goals:
  * - [x] Set up our Express app and export it
- * - [] API handles three routes
+ * - [x] API handles three routes
  *  - [x] GET / : "health check" route that returns "hello world"
- *  - [] GET /students : return a list of all students
- *  - [] GET /students/:id : return a student with a particular id
+ *  - [x] GET /students : return a list of all students
+ *  - [x] GET /students/:id : return a student with a particular id
  */
 const express = require('express');
 const studentController = require('./controllers/studentController');

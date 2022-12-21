@@ -1,12 +1,11 @@
 const express = require('express');
-const studentData = require('../studentData.json');
+const { findStudentById, getAllStudents } = require('../queries/studentQueries');
 
 const studentController = express.Router();
-const { students } = studentData;
-
 
 // GET /students
 studentController.get('/', (request, response) => {
+  const students = getAllStudents();
   response.status(200).json(students);
 });
 
@@ -16,7 +15,7 @@ studentController.get('/:id', (request, response) => {
   const { id } = request.params;
 
   // (Try to!) find the student by id
-  const student = findStudentById(students, id);
+  const student = findStudentById(id);
 
   if (student) {
     response.status(200).json(student);
@@ -25,24 +24,6 @@ studentController.get('/:id', (request, response) => {
   }
 });
 
-/**
- * Given a list of student objects and an id, find
- * the student with the given id. If no student can be found,
- * return null.
- * 
- * @param {*} students a list of student objects
- * @param {*} id an id
- * 
- * @returns a student or null
- */
-const findStudentById = (students, id) => {
-  for (let student of students) {
-    if (student.id === id) {
-      return student;
-    }
-  }
-  // We got this far, so we couldn't find the student
-  return null;
-}
+
 
 module.exports = studentController;
