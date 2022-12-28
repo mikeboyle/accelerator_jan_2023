@@ -7,8 +7,8 @@
  *  - [] Get all students
  *  - [] Get student by ID
  *
+ * - [] Organize our app into controller and query layers 
  * - [] Use a router to organize the routes by their prefixes (/students, /teachers, /posts, etc.)
- * - [] Organize our app into controller and query layers.
  */
 
 const express = require('express');
@@ -19,10 +19,8 @@ app.use(express.json()); // Why do we need this?
 
 // Route handler functions
 app.get('/', (request, response) => {
-  // TODO: What information can we find in a request?
-  console.log(Object.keys(request));
+  console.log(request, response);
 
-  // TODO: What can we do with a response?
   response.json({ message: 'Service is running' });
 });
 
